@@ -182,14 +182,13 @@ $(document).ready(function () {
             success: function (response) {
                 form[0].reset();
                 submitBtn.prop('disabled', false).html(originalHtml);
-                showToast(response.message || '✨ Message sent successfully to samikshyasigdel45@gmail.com!');
+                showToast(response.message || '✨ Message sent successfully!');
             },
             error: function (xhr) {
-                let errorMsg = '✨ Message recorded successfully! (Sent to samikshyasigdel45@gmail.com)';
+                let errorMsg = '⚠️ Unable to send email right now. Please email directly to samikshyasigdel45@gmail.com';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMsg = xhr.responseJSON.message;
                 }
-                form[0].reset();
                 submitBtn.prop('disabled', false).html(originalHtml);
                 showToast(errorMsg);
             }
